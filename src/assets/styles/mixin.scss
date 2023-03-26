@@ -1,0 +1,19 @@
+@import './color.scss';
+
+@mixin com-background-color {
+    background-color: $lightGreen
+}
+
+// 水平垂直居中
+@mixin flex-center($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// hover
+@mixin hover($type) {
+    &:hover {
+        cursor: $type;
+    }
+}
