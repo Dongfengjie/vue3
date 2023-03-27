@@ -35,7 +35,19 @@ export default defineConfig({
     },
 
     // 打包环境配置
-    build: {},
+    build: {
+        rollupOptions:{
+            // 分包策略,依赖单独打包减少http请求
+            output:{
+                manualChunks: id => {
+                    // 将 node_modules 中的代码单独打包成一个 JS 文件
+                    if(id.includes('node_modules')){
+                        return 'vendor'
+                    }
+                }
+            }
+        }
+    },
 
     // 预览环境配置
     preview: {},
