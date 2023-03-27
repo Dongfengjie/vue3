@@ -45,8 +45,8 @@ export default defineConfig({
 
     // 打包环境配置
     build: {
-        outDir: 'build', // 指定打包文件的输出目录, 默认值为 dist
-        assetsDir: 'static', // 静态资源的存放目录, 默认值为 assets
+        // outDir: 'build', // 指定打包文件的输出目录, 默认值为 dist
+        // assetsDir: 'static', // 静态资源的存放目录, 默认值为 assets
         assetsInlineLimit: 4096, // 图片转 base64 编码的阈值
         rollupOptions: {
             // 分包策略,依赖单独打包减少http请求
