@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import setting from './src/vueConfigSetting.js'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,6 +18,10 @@ export default defineConfig({
             resolvers: [ElementPlusResolver()]
         })
     ],
+
+    // // 配置环境变量名称，APP_为自定义开头名
+    // envPrefix: 'APP_',
+
     // scss mixin配置
     // 指定传递给 CSS 预处理器的选项。文件扩展名用作选项的键，
     css: {
@@ -36,7 +41,7 @@ export default defineConfig({
         proxy: {
             //代理跨域
             '/api': {
-                target: '',
+                target: setting.proxyTarget,
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, '')
             }

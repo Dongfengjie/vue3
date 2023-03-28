@@ -1,11 +1,9 @@
 <script setup lang="ts">
-// import { RouterLink, RouterView } from 'vue-router'
-import AppLayout from './layouts/AppLayout.vue'
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
-    <AppLayout></AppLayout>
-    <!-- <RouterView /> -->
+    <RouterView />
 </template>
 
 <style scoped lang="less"></style>

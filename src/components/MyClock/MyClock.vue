@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { useDateFormat } from '@vueuse/core'
-// import request from '@/utils/request.js'
 
 const props = defineProps({
     hover: Boolean

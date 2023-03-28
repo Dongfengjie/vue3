@@ -23,7 +23,7 @@ const codeMessage = {
 // 创建axios
 const service = axios.create({
     timeout: 600000,
-    baseURL: import.meta.env.VUE_APP_BASE_API, // url = base url + request url ?
+    baseURL: import.meta.env.VITE_APP_DOMAIN_URL, // url = base url + request url ?
 })
 
 // 请求拦截

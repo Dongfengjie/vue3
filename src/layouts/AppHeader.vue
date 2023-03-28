@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import DocumentationIcon from '@/assets/icons/IconDocumentation.vue'
 import ToolingIcon from '@/assets/icons/IconTooling.vue'
 import EcosystemIcon from '@/assets/icons/IconEcosystem.vue'
@@ -7,8 +8,11 @@ import SupportIcon from '@/assets/icons/IconSupport.vue'
 import MyClock from '@/components/MyClock/MyClock.vue'
 import MyAvatar from '@/components/MyAvatar/MyAvatar.vue'
 
+const router = useRouter()
+
 const handleClick = () => {
     console.log(11);
+    router.push('/404');
 }
 </script>
 
