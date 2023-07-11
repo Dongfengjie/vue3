@@ -4,8 +4,15 @@
     background-color: $lightGreen
 }
 
+@mixin background-item($url, $size, $repeat, $position) {
+    background-image: url($url);
+    background-size: $size;
+    background-repeat: $repeat;
+    background-position: $position;
+}
+
 // 水平垂直居中
-@mixin flex-center($justify, $align) {
+@mixin flex-setting($justify, $align) {
     display: flex;
     justify-content: $justify;
     align-items: $align;

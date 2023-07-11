@@ -30,7 +30,7 @@ import AppAside from './AppAside.vue'
 
 <style scoped lang="scss">
 .appHeader {
-    @include flex-center(center, center);
+    @include flex-setting(center, center);
     @include com-background-color;
 }
 
@@ -40,7 +40,7 @@ import AppAside from './AppAside.vue'
 }
 
 .appFooter {
-    @include flex-center(center, center);
+    @include flex-setting(center, center);
     @include com-background-color;
 }
 </style>

@@ -1,0 +1,41 @@
+import { defineStore } from 'pinia'
+import { ElMessage } from 'element-plus'
+
+interface UserInfo {
+    phone: string
+    pass: string
+    rember: boolean
+}
+
+export const useLoginStore = defineStore('login', {
+    state: () => ({
+        originUserInfo: {
+            phone: '13298011165',
+            pass: '123456',
+            rember: undefined
+        }
+    }),
+
+    actions: {
+        // async registerUser(login, password) {
+        //     try {
+        //         this.userData = await api.post({ login, password })
+        //     } catch (error) {
+        //         return error
+        //     }
+        // }
+        loginUser(params: UserInfo) {
+            const { phone, pass, rember } = params
+            console.log(phone)
+            console.log(pass)
+            if (
+                phone === this.originUserInfo.phone &&
+                pass === this.originUserInfo.pass
+            ) {
+                ElMessage.success('登陆成功')
+            } else {
+                ElMessage.error('用户名/密码错误！')
+            }
+        }
+    }
+})

@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AppLayout from '../layouts/AppLayout.vue'
-import HomeView from '../views/AboutView.vue'
+import LoginView from '../views/Login/LoginView.vue'
 import ErrorPage404 from '../views/ErrorPage/ErrorPage404.vue'
 
 const router = createRouter({
@@ -9,7 +9,7 @@ const router = createRouter({
         {
             path: '/',
             name: 'login',
-            component: HomeView
+            component: LoginView
         },
         {
             path: '/home',
