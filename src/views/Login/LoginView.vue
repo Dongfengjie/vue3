@@ -60,13 +60,6 @@ const resetForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.resetFields()
 }
-const rememberUser = (value: boolean) => {
-    if (value) {
-        localStorage.setItem('rememberUser', JSON.stringify(ruleForm))
-    } else {
-        localStorage.setItem('rememberUser', '')
-    }
-}
 onMounted(() => {
     const localData: any =
         localStorage.getItem('rememberUser') &&
@@ -107,7 +100,6 @@ onMounted(() => {
                         v-model="ruleForm.rember"
                         label="7天内记住用户名"
                         name="rember"
-                        @change="rememberUser"
                     />
                 </el-form-item>
 

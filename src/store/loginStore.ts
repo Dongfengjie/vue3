@@ -41,6 +41,11 @@ export const useLoginStore = defineStore('login', {
                     pass === this.otherUserInfo.pass)
             ) {
                 ElMessage.success('登陆成功')
+                if (rember) {
+                    localStorage.setItem('rememberUser', JSON.stringify(params))
+                } else {
+                    localStorage.setItem('rememberUser', '')
+                }
                 router.push('/home');
             } else {
                 ElMessage.error('用户名/密码错误！')
