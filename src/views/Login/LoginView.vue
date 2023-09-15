@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
 import { useLoginStore } from '@/store/loginStore'
 
@@ -60,6 +60,21 @@ const resetForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.resetFields()
 }
+const rememberUser = (value: boolean) => {
+    if (value) {
+        localStorage.setItem('rememberUser', JSON.stringify(ruleForm))
+    } else {
+        localStorage.setItem('rememberUser', '')
+    }
+}
+onMounted(() => {
+    const localData: any =
+        localStorage.getItem('rememberUser') &&
+        JSON.parse(localStorage.getItem('rememberUser') as any)
+    if (!localData) return
+    ruleForm.phone = localData.phone
+    ruleForm.rember = localData.rember
+})
 </script>
 
 <template>
@@ -92,6 +107,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
                         v-model="ruleForm.rember"
                         label="7天内记住用户名"
                         name="rember"
+                        @change="rememberUser"
                     />
                 </el-form-item>
 
@@ -113,7 +129,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
     width: 100%;
     height: 100%;
     @include flex-setting(center, center);
-    @include background-item('@/assets/img/bg.jpg', cover, no-repeat, center);
+    // @include background-item('@/assets/img/bg.jpg', cover, no-repeat, center);
     .login_form {
         padding: 50px;
         border-radius: 10px;

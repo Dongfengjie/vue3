@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ElMessage } from 'element-plus'
+import router from '@/router'
 
 interface UserInfo {
     phone: string
@@ -40,6 +41,7 @@ export const useLoginStore = defineStore('login', {
                     pass === this.otherUserInfo.pass)
             ) {
                 ElMessage.success('登陆成功')
+                router.push('/home');
             } else {
                 ElMessage.error('用户名/密码错误！')
             }
