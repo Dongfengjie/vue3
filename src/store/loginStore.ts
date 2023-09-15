@@ -38,7 +38,6 @@ export const useLoginStore = defineStore('login', {
                     pass === this.originUserInfo.pass) ||
                 (phone === this.otherUserInfo.phone &&
                     pass === this.otherUserInfo.pass)
-
             ) {
                 ElMessage.success('登陆成功')
             } else {
