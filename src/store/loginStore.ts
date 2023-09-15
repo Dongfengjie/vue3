@@ -13,6 +13,11 @@ export const useLoginStore = defineStore('login', {
             phone: '13298011165',
             pass: '123456',
             rember: undefined
+        },
+        otherUserInfo: {
+            phone: '15500000001',
+            pass: '123456',
+            rember: undefined
         }
     }),
 
@@ -29,8 +34,11 @@ export const useLoginStore = defineStore('login', {
             console.log(phone)
             console.log(pass)
             if (
-                phone === this.originUserInfo.phone &&
-                pass === this.originUserInfo.pass
+                (phone === this.originUserInfo.phone &&
+                    pass === this.originUserInfo.pass) ||
+                (phone === this.otherUserInfo.phone &&
+                    pass === this.otherUserInfo.pass)
+
             ) {
                 ElMessage.success('登陆成功')
             } else {
